@@ -1,21 +1,28 @@
-function createIteratorObject(report) {
-  let currentDept = 0;
-  let currentEmp = 0;
-  const numDepts = report.departments.length;
-  const numEmps = report.departments[0].employees.length;
+export default function createIteratorObject(report) {
+  let currentDepartmentIndex = 0;
+  let currentEmployeeIndex = 0;
 
-  return {
-    next: function() {
-      if (currentEmp === numEmps) {
-        currentDept++;
-        currentEmp = 0;
-      }
-      if (currentDept === numDepts) {
+  const iterator = {
+    next() {
+      if (currentDepartmentIndex >= report.departments.length) {
         return { done: true };
       }
-      const employee = report.departments[currentDept].employees[currentEmp];
-      currentEmp++;
-      return { value: employee, done: false };
-    }
+
+      const currentDepartment = report.departments[currentDepartmentIndex];
+      const currentEmployee = currentDepartment.employees[currentEmployeeIndex];
+
+      currentEmployeeIndex++;
+      if (currentEmployeeIndex >= currentDepartment.employees.length) {
+        currentDepartmentIndex++;
+        currentEmployeeIndex = 0;
+      }
+
+      return { value: currentEmployee, done: false };
+    },
+    [Symbol.iterator]() {
+return this;
+    },
   };
-}
+
+  return iterator;
+}      
