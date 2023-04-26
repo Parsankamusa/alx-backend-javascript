@@ -1,4 +1,6 @@
 # 0x11. ES6 data manipulation
+![image](https://user-images.githubusercontent.com/91263172/234577593-3beaee18-1d02-4e7c-ad72-74d7ac7bb7bd.png)
+
 :open_file_folder: Specializations - Web Stack programming ― Back-end   
 :bookmark: filter | javascript | map | reduce | set | weak link
 
@@ -35,4 +37,4 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 * [x] 11. Weak link data structure
 
 ## Software engineer
-)
+Musa Parsanka
